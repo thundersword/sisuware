@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>后台首页</title>
+
+    <link href="__PUBLIC__/adminui/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="__PUBLIC__/adminui/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__PUBLIC__/adminui/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/adminui/css/style.min.css?v=4.0.0" rel="stylesheet">
+
+	<script src="__PUBLIC__/adminui/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__PUBLIC__/adminui/js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="__PUBLIC__/adminui/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__PUBLIC__/adminui/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__PUBLIC__/adminui/js/plugins/layer/layer.min.js"></script>
+    <script src="__PUBLIC__/adminui/js/hplus.min.js?v=4.0.0"></script>
+    <script type="text/javascript" src="__PUBLIC__/adminui/js/contabs.min.js"></script>
+    <script src="__PUBLIC__/adminui/js/plugins/pace/pace.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/adminui/js/jquery.form.js"></script>
+
+<style>
+    .span1{
+        min-width: 200px;
+        max-width: 100%;
+        margin-left: 100px;
+    }
+
+    .span2{
+        min-width: 400px;
+        max-width: 100%;
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+    
+    .panel-body hr{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .s1{
+        width: 120px;
+        text-align: left;
+        display: inline-block;
+    }
+
+    .s2{
+        margin-left: 200px;
+    }
+
+
+</style>
+
+
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRxight">
+        
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>后台首页</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class='row'>
+                            
+
+                            
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        服务器信息
+                                    </div>
+                                    <div class="panel-body">
+                                        <!-- <form method="post" id='form_subtitle' action="__APP__/Admin/EditSubtitle" class="form-horizontal"> -->
+                                            <!-- <div class="form-group">
+                                                <sapn class="span1">操作系统:</span>
+                                                <sapn class="span2">操作系统:</span>
+                                            </div> -->
+                                            <p>
+                                                <span class='s1'>操作系统：</span>
+                                                <span class='s2'><{$os}></span>
+                                                <hr>
+                                            </p>
+                                            <p>
+                                                <span class='s1'>运行环境：</span>
+                                                <span class='s2'><{$serversoft}></span>
+                                                <hr>
+                                            </p>
+                                            <p>
+                                                <span class='s1'>上传附件限制：</span>
+                                                <span class='s2'><{$upsize}></span>
+                                                <hr>
+                                            </p>
+                                            <p>
+                                                <span class='s1'>服务器时间：</span>
+                                                <span class='s2'><{$time}></span>
+                                                <hr>
+                                            </p>
+                                            <p>
+                                                <span class='s1'>域名/IP：</span>
+                                                <span class='s2'><{$domin}></span>
+                                                <hr>
+                                            </p>
+                                            
+
+                                            <!-- <div class="form-group">
+                                                <label class="col-sm-2 control-label">操作系统1:</label>
+                                                <label class="col-sm-2 control-label"><{$os}></label>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">操作系统:</label>
+                                                <label class="col-sm-2 control-label">操作系统:</label>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">操作系统:</label>
+                                                <label class="col-sm-2 control-label">操作系统:</label>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">操作系统:</label>
+                                                <label class="col-sm-2 control-label">操作系统:</label>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">操作系统:</label>
+                                                <label class="col-sm-2 control-label">操作系统:</label>
+                                            </div>
+
+                                        </form> -->
+
+
+
+                                    </div>
+
+                                </div>
+                            
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

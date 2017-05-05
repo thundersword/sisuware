@@ -1,0 +1,22 @@
+<div class="list-head">
+    <h2>SOFTWARE CATEGORIES</h2>
+</div>
+<div class="am-tabs cat-tab" data-am-tabs>
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+        <foreach name="cate" item="vo">
+            <li><a href="#tab<{$vo.id}>"><{$vo.classname}></a></li>
+        </foreach>
+    </ul>
+    <div class="am-tabs-bd am-tabs-bd-ofv">
+        <foreach name="cate" item="vk">
+            <div class="am-tab-panel" id="tab<{$vk.id}>">
+                <ul>
+                    <foreach name="vk.child" item="vs">
+                        <li><a href="<{:U('Index/index',array('cate_id' => $vs['id']))}>"><{$vs.classname}></a></li>
+                    </foreach>
+                </ul>
+            </div>
+        </foreach>
+
+    </div>
+</div>

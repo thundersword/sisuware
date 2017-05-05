@@ -1,0 +1,19 @@
+#article_info a{
+	cursor: Default;
+	color: #999;
+	line-height: 40px;
+	font-size: 16px;
+}
+
+
+#title{
+	margin-left: 20px;
+}
+
+#submit_btn{
+	margin-top: 10px;
+}
+
+#input_title{
+	width: 50%;
+}

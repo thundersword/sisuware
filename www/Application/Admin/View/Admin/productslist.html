@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>产品列表</title>
+
+    <link href="__CSS__/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="__CSS__/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__CSS__/animate.min.css" rel="stylesheet">
+    <link href="__CSS__/style.min.css?v=4.0.0" rel="stylesheet">
+    <link href="__CSS__/products.css" rel="stylesheet">
+
+	<script src="__JS__/jquery.min.js?v=2.1.4"></script>
+    <script src="__JS__/bootstrap.min.js?v=3.3.5"></script>
+    <script src="__JS__/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__JS__/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__JS__/plugins/layer/layer.min.js"></script>
+    <script src="__JS__/hplus.min.js?v=4.0.0"></script>
+    <script type="text/javascript" src="__JS__/contabs.min.js"></script>
+    <script src="__JS__/plugins/pace/pace.min.js"></script>
+    <script type="text/javascript" src="__JS__/my/productslist.js"></script>
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRxight">
+        
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>软件列表</h5>
+                        
+                    </div>
+                    <div class="ibox-content">
+                        
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead> 
+                                    <tr>
+
+                                        <th></th>
+                                        <th>ID</th>
+                                        <th>名称</th>
+                                        <th>类型</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                    <foreach name='list' item='vo'>
+                                        <tr>
+                                        <td style="width: 30px;">
+                                            <input type="checkbox"  name="checkbox_article" value='<{$vo.id}>'>
+                                        </td>
+                                        <td><{$vo.id}></td>
+                                        <td><a class='info'><{$vo.name}></a></td>
+                                        <td><a class='info'><{$vo.class_name}></a></td>
+                                        <td class='action'>
+                                            <a class='edit' href="__APP__/Admin/editproduct/id/<{$vo.id}>" >编辑</a>
+                                            |
+                                            <a class='delete' onclick='Delete(<{$vo.id}>)'>删除</a>
+                                            |
+                                            <eq name='vo.recommand' value='0'><a class='delete danger' onclick='recommand(<{$vo.id}>,1)'>推荐</a></eq>
+                                            <eq name='vo.recommand' value='1'><a class='delete' onclick='recommand(<{$vo.id}>,0)'>取消推荐</a></eq>
+
+                                        </td>
+                                        </tr>
+                                    </foreach>
+
+
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id='option_bottom'>
+                            <div class="paging"><{$paging}></div>
+                            <div class="batch">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="selectAll()">全选</button>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="invert_select()">反选</button>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="un_selectAll()">不选</button>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="BatcDelete()">删除</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script> -->
+    
+    <script>
+        function recommand(id,status) {
+            $.post("<{:U('setrecommand')}>",{id:id,status:status},function(data){
+                if (data=='yes') {
+                    alert('设置成功');
+                }else{
+                    alert('设置失败，请重试。');
+                }
+            });
+        }
+
+    </script>
+
+
+</body>
+</html>

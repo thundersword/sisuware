@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>产品列表</title>
+
+    <link href="__PUBLIC__/adminui/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="__PUBLIC__/adminui/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__PUBLIC__/adminui/css/animate.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/adminui/css/style.min.css?v=4.0.0" rel="stylesheet">
+
+	<script src="__PUBLIC__/adminui/js/jquery.min.js?v=2.1.4"></script>
+    <script src="__PUBLIC__/adminui/js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="__PUBLIC__/adminui/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__PUBLIC__/adminui/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__PUBLIC__/adminui/js/plugins/layer/layer.min.js"></script>
+    <script src="__PUBLIC__/adminui/js/hplus.min.js?v=4.0.0"></script>
+    <script type="text/javascript" src="__PUBLIC__/adminui/js/contabs.min.js"></script>
+    <script src="__PUBLIC__/adminui/js/plugins/pace/pace.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/adminui/js/jquery.form.js"></script>
+
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRxight">
+        
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>编辑标题说明</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <!-- 上传产品信息表单 -->
+                        <form method="post" id='form_subtitle' action="__APP__/Admin/EditSubtitle" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">企业新闻:</label>
+                                <div class="col-sm-10">
+                                    <textarea name="news" id="t_news" class="form-control" cols="10" rows="5"><{$list[0].subtitle}></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">人才招聘:</label>
+                                <div class="col-sm-10">
+                                    <textarea name="zhaopin" id="t_zhaopin" class="form-control" cols="10" rows="5"><{$list[1].subtitle}></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">成功案例:</label>
+                                <div class="col-sm-10">
+                                    <textarea name="case" id="t_case" class="form-control" cols="10" rows="5"><{$list[2].subtitle}></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">公司资质:</label>
+                                <div class="col-sm-10">
+                                    <textarea name="aptitude" id="t_aptitude" class="form-control" cols="10" rows="5"><{$list[3].subtitle}></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">联系我们:</label>
+                                <div class="col-sm-10">
+                                    <textarea name="contact" id="t_contact" class="form-control" cols="10" rows="5"><{$list[4].subtitle}></textarea>
+                                </div>
+                            </div>
+                            
+
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="button" onclick="up_case()">保存</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function up_case(){
+            if ($.trim($('#t_news').val())=='' || $.trim($('#t_zhaopin').val())=='' || $.trim($('#t_case').val())=='' || $.trim($('#t_aptitude').val())=='' || $.trim($('#t_contact').val())=='') {
+                alert("请填标题说明！");
+                return;
+            }
+
+
+            $("#form_subtitle").ajaxSubmit(function(message) { 
+                console.log(message);
+                alert('刷新后查看效果');
+                location.reload();
+            }); 
+        }
+    </script>
+
+    <!-- <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script> -->
+</body>
+</html>

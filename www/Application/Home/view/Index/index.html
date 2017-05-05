@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title><{$site_config[0]['value']}></title>
+    <link rel="stylesheet" href="__CSS__/amazeui.min.css" />
+    <link rel="stylesheet" href="__CSS__/sisuware.css" />
+</head>
+<body>
+    <include file="Public/header" />
+    <div class="main-body">
+        <div class="am-container">
+            <div class="am-g">
+                <div class="am-u-lg-4 am-u-md-5 am-u-sm-12">
+                    <include file="Public/cate" />
+                </div>
+                <div class="am-u-lg-8 am-u-md-7 am-u-sm-12">
+                    <div class="list-head">
+                        <h2>FEATURED SOFTWARE</h2>
+                    </div>
+                    <div class="list-content">
+                        <ul class="am-avg-sm-2 am-avg-lg-3 am-avg-md-2">
+                            <volist name="softs" id="v" empty="暂时没有数据">
+
+                                <li>
+
+                                    <a href="<{:U('Index/detail',array('id' => $v['id']))}>" style="text-decoration:none;">
+                                        <if condition="empty($v['imgname']) eq 0">
+                                            <img src="<{$v.imgname}>" alt="<{$v.name}>" width="80" height="80" />
+                                            <else />
+                                            <img src="__IMG__/default_image.jpg" alt="<{$v.name}>" width="80" height="80" />
+                                        </if>
+
+
+                                        <h4><{$v.name}></h4>
+
+                                        <p><{$v.summary|mb_substr=###,0,12,'utf-8'}></p>
+
+                                        <!--p标签内显示两行文字，超出部分截取字符，用...代替-->
+
+                                    </a>
+
+                                </li>
+
+                            </volist>
+                        </ul>
+                    </div>
+                    <div class="list-head">
+                        <h2>LATEST UPDATES</h2>
+                    </div>
+                    <div class="update-list">
+                        <ul class="news-list">
+
+                            <volist name="latest_softs" id="v">
+
+                                <li><a href="<{:U('Index/detail',array('id' => $v['id']))}>"><em class="date"><{$v.date|date="Y/m/d",###}></em> - <span><{$v.name}></span></a></li>
+
+                            </volist>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Public/footer" />
+</body>
+</html>

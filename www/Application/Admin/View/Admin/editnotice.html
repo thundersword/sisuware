@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+    <link href="__CSS__/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="__CSS__/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="__CSS__/animate.min.css" rel="stylesheet">
+    <link href="__CSS__/style.min.css?v=4.0.0" rel="stylesheet">
+
+	<script src="__JS__/jquery.min.js?v=2.1.4"></script>
+    <script src="__JS__/bootstrap.min.js?v=3.3.5"></script>
+    <script src="__JS__/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__JS__/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="__JS__/plugins/layer/layer.min.js"></script>
+    <script src="__JS__/hplus.min.js?v=4.0.0"></script>
+    <script type="text/javascript" src="__JS__/contabs.min.js"></script>
+    <script src="__JS__/plugins/pace/pace.min.js"></script>
+    <script type="text/javascript" src="__JS__/jquery.form.js"></script>
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRxight">
+        
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>编辑公告</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <!-- 上传产品信息表单 -->
+                        <div id='form_product' class="form-horizontal">
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">标题:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name='title' id='title' class="form-control" value="<{$info.title}>">
+                                </div>
+                            </div>
+							
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">内容:</label>
+                                <div class="col-sm-10">
+                                    <textarea id="editor"  cols="30" rows="10" style="height:600px;"><{$info.content}></textarea>
+                                    <textarea name="content" id="content" cols="30" rows="10" style='display: none'></textarea>
+                                    <textarea name="preview" id="preview" cols="30" rows="10" style='display: none'></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-1">
+                                    <button onclick='up()' class="btn btn-success" >修改</button>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        
+
+                        <!-- 上传图片表单 -->
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/ueditor/lang/en/en.js"></script>
+<script>
+var ue = UE.getEditor('editor');
+
+function up(){
+	var text=ue.getContent();
+	$.post("<{:U('editnotice')}>",{content:text,id:<{$info.id}>,title:$('#title').val()},function(data){
+		alert(data);
+	});
+}
+
+
+</script>
+    <!-- <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script> -->
+</body>
+</html>

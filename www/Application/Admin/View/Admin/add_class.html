@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title></title>
+
+
+
+    <link href="__CSS__/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+
+    <link href="__CSS__/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="__CSS__/animate.min.css" rel="stylesheet">
+
+    <link href="__CSS__/style.min.css?v=4.0.0" rel="stylesheet">
+
+    <link href="__CSS__/products.css" rel="stylesheet">
+
+    <script src="__JS__/jquery.min.js?v=2.1.4"></script>
+
+    <script src="__JS__/bootstrap.min.js?v=3.3.5"></script>
+
+    <script src="__JS__/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <script src="__JS__/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <script src="__JS__/plugins/layer/layer.min.js"></script>
+
+    <script src="__JS__/hplus.min.js?v=4.0.0"></script>
+
+    <script type="text/javascript" src="__JS__/contabs.min.js"></script>
+
+    <script src="__JS__/plugins/pace/pace.min.js"></script>
+
+    <script type="text/javascript" src="__JS__/my/productslist.js"></script>
+
+    <script type="text/javascript" src="__JS__/jquery.form.js"></script>
+
+</head>
+
+<body class="gray-bg">
+
+<div class="wrapper wrapper-content animated fadeInRxight">
+
+
+
+    <div class="row">
+
+        <div class="col-sm-12">
+
+            <div class="ibox float-e-margins">
+
+                <div class="ibox-title">
+
+                    <h5>添加子分类</h5>
+
+                </div>
+
+                <div class="ibox-content">
+
+                    <form method="post" action="<{:U('add_class')}>" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">上级分类</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" name="pid">
+                                    <option value="0">作为一级分类</option>
+                                <foreach name="parent_cate" item="vo">
+                                    <option value="<{$vo.id}>"><{$vo.classname}></option>
+                                </foreach>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">分类名称</label>
+                            <div class="col-sm-3">
+                                <input class="input-medium form-control" name="classname">
+                            </div>
+                        </div>
+                        <label class="control-label col-sm-3"></label><button type="submit" class="btn btn-primary">保存</button>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

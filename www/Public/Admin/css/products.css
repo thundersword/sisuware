@@ -1,0 +1,102 @@
+.action{
+	padding: 0px !important;
+}
+
+.edit , .delete{
+	height: 100%;
+}
+
+.info{
+    cursor: default;
+    color: #222;
+}
+
+
+
+
+
+
+
+/*以下是分页样式*/
+.paging{
+	display: inline-block;
+	/*margin-top: 10px;*/
+	width: 100%;
+	height: 30px;
+    
+/*	margin-left: auto;
+	margin-right: auto;*/
+	border-radius: 6px;
+	/*background: #FFCCFF;*/
+}
+
+
+.paging div{
+	width: 100%;
+	text-align: right;
+	margin-top: 2px;
+}
+
+#paging_header{
+	display: inline-block;
+    /*float: left;*/
+    line-height: 26px;
+    width: 26px;
+    height: 26px;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+	color: #756F71;
+	font-size: 12px;
+}
+
+.paging a{
+    display: inline-block;
+    /*float: left;*/
+    line-height: 26px;
+    width: 26px;
+    height: 26px;
+    margin: 0px;
+    padding: 0px;
+	margin-left: 2px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+	color: #756F71;
+	font-size: 12px;
+}
+
+
+.current , .paging a:hover{
+	display: inline-block;
+    /*float: left;*/
+    line-height: 26px;
+    width: 26px;
+    height: 26px;
+    margin: 0px;
+    padding: 0px;
+	margin-left: 2px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+	color: black;
+	font-size: 12px;
+	background: #EDEDED;
+}
+
+/*以上是分页样式*/
+
+
+/*批量操作开始*/
+.batch{
+    height: 30px;
+    width: 320px;
+    display: inline-block;
+    margin-right: 30px;
+    /*background: #999;*/
+}

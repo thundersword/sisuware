@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title><{$soft_detail.name}>|<{$site_config[0]['value']}></title>
+    <link rel="stylesheet" href="__CSS__/amazeui.min.css" />
+    <link rel="stylesheet" href="__CSS__/sisuware.css" />
+</head>
+<body>
+<include file="Public/header" />
+<div class="main-body">
+    <div class="am-container">
+        <div class="am-g">
+            <div class="am-u-lg-4 am-u-md-5 am-u-sm-12">
+                <include file="Public/cate" />
+            </div>
+            <div class="am-u-lg-8 am-u-md-7 am-u-sm-12">
+                <div class="list-head">
+                    <h2>SOFTWARE INTRODUCTION</h2>
+                </div>
+                <div class="software-detail am-g">
+                    <div class="soft-thumb am-u-lg-4 am-u-md-6 am-u-sm-12">
+                        <if condition="empty($soft_detail['imgname']) eq 0">
+                            <img class="am-responsive" src="<{$soft_detail.imgname}>" alt="<{$soft_detail.name}>" />
+                            <else />
+                            <img class="am-responsive"  src="__IMG__/default_image.jpg" alt="<{$v.name}>" />
+                        </if>
+                        <h4><{$soft_detail.name}></h4>
+
+                        <ul>
+
+                            <li><b>Size:</b> <{$soft_detail.size}></li>
+
+                            <li><b>Version:</b> <{$soft_detail.version}></li>
+
+                            <li><b>OS:</b> <{$os}></li>
+
+                            <li><b>Date:</b> <{$soft_detail.date|date="Y/m/d",###}></li>
+
+                            <div class="clearfix"></div>
+
+                        </ul>
+
+                        <a href="<{:U('download',array('id'=>$soft_detail['id']))}>" target='_black' style="text-decoration:none;" class="btn">Download</a>
+
+                    </div>
+
+                    <div class="soft-intro am-u-lg-8 am-u-md-6 am-u-sm-12">
+
+                        <div class="info-body">
+
+                            <h3>Summary</h3>
+
+                            <p><{$soft_detail.summary}></p>
+
+                            <h3>New Feature</h3>
+
+                            <{$soft_detail.newfeature}>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public/footer" />
+</body>
+</html>
