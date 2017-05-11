@@ -219,7 +219,7 @@ class AdminController extends Controller
 
         $upload->allowExts = array('jpg', 'gif', 'png', 'jpeg', 'bmp');// 设置附件上传类型
 
-        $upload->savePath = './Public/uploads/img/products/';// 设置附件上传目录
+        $upload->savePath = './img/products/';// 设置附件上传目录
 
         $upload->autoSub = false;//不使用子目录保存
 
@@ -258,6 +258,7 @@ class AdminController extends Controller
             $data['class_name'] = $class['classname'];
 
 //            $data['imgname'] = $data['imgname'];
+            // $data['imgname']="/Uploads/Public/uploads/img/products/".$data['imgname'];
 
             $data['date'] = time();
 
