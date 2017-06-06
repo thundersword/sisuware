@@ -117,12 +117,12 @@ class IndexController extends CommonController  {
 			session('referer',$_SERVER['HTTP_REFERER']);
 		}
 
-		/*
+		
 		if(session('username')){
 			redirect(session('referer'));
 			return;
 		}
-		*/
+
 
         Vendor("phpCAS.CAS");
         //echo \phpCAS::getVersion();
@@ -143,7 +143,7 @@ class IndexController extends CommonController  {
         // \phpCAS::forceAuthentication();
         if(\phpCAS::checkAuthentication()){
 			session('username',\phpCAS::getUser());
-            $this->success(session('referer'));
+            $this->redirect(session('referer'));
         }
 
 
