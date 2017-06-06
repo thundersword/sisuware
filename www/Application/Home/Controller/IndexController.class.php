@@ -135,7 +135,7 @@ class IndexController extends CommonController  {
         \phpCAS::setDebug();
         // Enable verbose error messages. Disable in production!
         \phpCAS::setVerbose(true);
-        \phpCAS::client(CAS_VERSION_3_0,'sso.shisu.edu.cn',443,'/sso');
+        \phpCAS::client(CAS_VERSION_3_0,'sso.shisu.edu.cn',443,'/sso',false);
         \phpCAS::setNoCasServerValidation();
         // \phpCAS::setServerLoginUrl("https://sso.shisu.edu.cn/sso/login");  
 
