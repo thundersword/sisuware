@@ -115,19 +115,9 @@ class IndexController extends CommonController  {
     */
     public function loginCAS(){
 		
-//		if(session('referer')==NULL){
-//			session('referer',$_SERVER['HTTP_REFERER']);
-//		}
-        if(is_null(session('referer')==NULL)){
-            session('referer',$_SERVER['HTTP_REFERER']);
-        }
-
-		
-//		if(session('username')){
-//			redirect(session('referer'));
-//			return;
-//		}
-
+		if(session('referer')==NULL){
+			session('referer',$_SERVER['HTTP_REFERER']);
+		}
 
         Vendor("phpCAS.CAS");
         //echo \phpCAS::getVersion();
@@ -152,8 +142,6 @@ class IndexController extends CommonController  {
             // force CAS authentication
             \phpCAS::forceAuthentication();
         }
-        exit;
-
     }
 	
 	public function logout(){
