@@ -143,8 +143,7 @@ class IndexController extends CommonController  {
         // \phpCAS::forceAuthentication();
         if(\phpCAS::checkAuthentication()){
 			session('username',\phpCAS::getUser());
-			dump(session());die();
-            redirect(session('referer'));
+            $this->success(session('referer'));
         }
 
 
