@@ -115,9 +115,12 @@ class IndexController extends CommonController  {
     */
     public function loginCAS(){
 		
-		if(session('referer')==NULL){
-			session('referer',$_SERVER['HTTP_REFERER']);
-		}
+//		if(session('referer')==NULL){
+//			session('referer',$_SERVER['HTTP_REFERER']);
+//		}
+        if(is_null(session('referer')==NULL)){
+            session('referer',$_SERVER['HTTP_REFERER']);
+        }
 
 		
 //		if(session('username')){
@@ -145,7 +148,7 @@ class IndexController extends CommonController  {
         // \phpCAS::forceAuthentication();
         if(\phpCAS::checkAuthentication()){
 			session('username',\phpCAS::getUser());
-            $this->redirect(session('referer'));
+            $this->success('登录成功，正在跳转',session('referer'));
         }
 
 
@@ -185,7 +188,8 @@ class IndexController extends CommonController  {
 			return;
 		}
 		$soft=M('softs')->find(session('download_id'));
-		echo "<script>open('".$soft['download']."')</script>";
+		$this->success('正在前往下载地址，请稍等！', $soft['download']);
+//		echo "<script>open('".$soft['download']."')</script>";
 		return;
 	}
 

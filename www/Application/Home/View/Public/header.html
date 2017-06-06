@@ -5,8 +5,7 @@
         </h1>
         <div class="am-topbar-right" style="float: right;">
             <notempty name="username">
-                <span><{$username}></span>
-                <a class="login" href='<{:U('logout')}>'>Logout</a></li>
+                <a class="login" href='<{:U('logout')}>'><{$username}>,Logout</a></li>
                 <else />
                 <a class="login" href='<{:U('loginCAS')}>'>Login</a></li>
             </notempty>
