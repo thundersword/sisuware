@@ -112,7 +112,7 @@ class IndexController extends CommonController  {
     *单点登录系统CAS
     */
     public function loginCAS(){
-		dump(session());die();
+		
 		if(session('referer')==NULL){
 			session('referer',$_SERVER['HTTP_REFERER']);
 		}
@@ -143,6 +143,7 @@ class IndexController extends CommonController  {
         // \phpCAS::forceAuthentication();
         if(\phpCAS::checkAuthentication()){
 			session('username',\phpCAS::getUser());
+			dump(session());die();
             redirect(session('referer'));
         }
 
