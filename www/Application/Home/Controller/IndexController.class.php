@@ -8,6 +8,7 @@ class IndexController extends CommonController  {
     {
         parent::initialize();
         $username = session('username');
+        d
         $this->assign('username',$username);
     }
 
