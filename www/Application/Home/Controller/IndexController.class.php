@@ -112,6 +112,7 @@ class IndexController extends CommonController  {
     *单点登录系统CAS
     */
     public function loginCAS(){
+		dump(session());die();
 		if(session('referer')==NULL){
 			session('referer',$_SERVER['HTTP_REFERER']);
 		}
