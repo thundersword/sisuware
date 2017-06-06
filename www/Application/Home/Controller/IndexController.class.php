@@ -141,16 +141,18 @@ class IndexController extends CommonController  {
 
         // \phpCAS::handleLogoutRequests();
 
-        // force CAS authentication
-        \phpCAS::forceAuthentication();
+
 
 		
         // \phpCAS::forceAuthentication();
         if(\phpCAS::checkAuthentication()){
 			session('username',\phpCAS::getUser());
 //            $this->success('登录成功，正在跳转',session('referer'));
+        }else{
+            // force CAS authentication
+            \phpCAS::forceAuthentication();
         }
-
+        exit;
 
     }
 	
