@@ -45,7 +45,13 @@ a:focus{outline:none;}
      line-height: 34px;
      display: inline-block;
      margin-top: 22px;
-    margin-right: 5px;
+ }
+}.am-topbar .logout{
+     color: #fff;
+     height: 34px;
+     line-height: 34px;
+     display: inline-block;
+     margin-top: 22px;
  }
 .am-topbar .login{
     color: #fff;
