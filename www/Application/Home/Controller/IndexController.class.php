@@ -3,30 +3,45 @@
 namespace Home\Controller;
 
 class IndexController extends CommonController  {
-
+    private $platform;
     public function _initialize()
     {
         parent::initialize();
         $username = session('username');
+        $this->platform = getOS();
         $this->assign('username',$username);
     }
 
 
 
     public function index(){
-
         $cate_id = I('cate_id');
+        $cate = M('softs_cate');
         $where['recommand'] = 1;
         if($cate_id){
+            $parentCat = $cate->where('id='.$cate_id)->find();
+            $pid = $parentCat['pid'];
             $where['class_id'] = $cate_id;
+            $this->softs = M('softs')->where($where)->order('date desc')->select();
+        }else{
+            if($this->platform == 'windows'){
+                $os = $cate->where('classname = "Windows"')->find();
+                $pid = $os['id'];
+            }
+            if($this->platform == 'mac'){
+                $os = $cate->where('classname = "Mac"')->find();
+                $pid = $os['id'];
+            }
+            $this->softs = $this->getSoftsByPid($pid);
         }
+
         //显示首页默认显示应用
 
-        $this->softs = M('softs')->where($where)->order('date desc')->select();
+
         //最近更新软件
 
         $this->latest_softs = M('softs')->order('date desc')->limit(5)->select();
-
+        $this->pid = $pid;
         $this->display();
 
     }
@@ -183,6 +198,21 @@ class IndexController extends CommonController  {
 		return;
 	}
 
+    public function getSoftsByPid($pid){
+        if($pid){
+            $cate = M('softs_cate')->select();
+            $in = [];
+            foreach ($cate as $k => $v){
+                if($v['pid'] == $pid){
+                    array_push($in,$v['id']);
+                }
+            }
+            $str = implode(",",$in);
+            $where['class_id'] = array('in',$str);
+            $softs = M('softs')->where($where)->select();
+            return $softs;
+        }
+    }
 
 
 

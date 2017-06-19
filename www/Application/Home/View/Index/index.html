@@ -67,5 +67,19 @@
         </div>
     </div>
     <include file="Public/footer" />
+    <script>
+        $(function () {
+            var className = $(".am-tabs-nav").find("li");
+            var length = className.length;
+            for(var i = 0; i < length; i ++){
+                if(className.eq(i).hasClass('am-active')){
+                    $(".am-tabs-bd").find(".am-tab-panel").eq(i).addClass("am-active");
+                }else{
+                    $(".am-tabs-bd").find(".am-tab-panel").eq(i).removeClass("am-active");
+                }
+            }
+        })
+
+    </script>
 </body>
 </html>

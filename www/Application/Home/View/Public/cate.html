@@ -4,7 +4,14 @@
 <div class="am-tabs cat-tab" data-am-tabs>
     <ul class="am-tabs-nav am-nav am-nav-tabs">
         <foreach name="cate" item="vo">
-            <li><a href="#tab<{$vo.id}>"><{$vo.classname}></a></li>
+            <php>
+                if(!empty($pid) && $vo['id'] == $pid){
+                    $className = 'am-active';
+                }else{
+                    $className ='';
+                }
+            </php>
+            <li class="<{$className}>"><a href="#tab<{$vo.id}>"><{$vo.classname}></a></li>
         </foreach>
     </ul>
     <div class="am-tabs-bd am-tabs-bd-ofv">
